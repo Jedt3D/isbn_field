@@ -16,7 +16,15 @@ And then execute:
 $ bundle install
 ```
 
-Or install it yourself as:
+I didn't submit it to the RubyGem website yet.
+You can directly link this gem via this command in `Gemfile`
+> `gem "isbn_field", :git => "git@github.com:Jedt3D/isbn_field.git"`
+
+Tools I've used
+- RubyMine IDE
+- Jetbrains AI Assistant Pro and Junie
+
+Then install it with this command.
 
 ```bash
 $ gem install isbn_field

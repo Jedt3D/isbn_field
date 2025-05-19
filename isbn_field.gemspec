@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "isbn_field"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Worajedt Sitthidumrong"]
   spec.email         = ["jedt3d@gmail.com"]
 

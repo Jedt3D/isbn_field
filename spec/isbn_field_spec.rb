@@ -28,25 +28,25 @@ RSpec.describe IsbnField do
 
     context "with valid ISBN-10 format but invalid checksum" do
       it "returns [false, 'validation failed']" do
-        expect(IsbnField.validate("0471958697")).to eq([false, "validation failed"])
-        expect(IsbnField.validate("0-471-95869-7")).to eq([false, "validation failed"])
+        expect(IsbnField.validate("0471958698")).to eq([false, "validation failed"])
+        expect(IsbnField.validate("0-471-95869-8")).to eq([false, "validation failed"])
       end
     end
 
     context "with valid ISBN-13 format but invalid checksum" do
       it "returns [false, 'validation failed']" do
-        expect(IsbnField.validate("9780471958697")).to eq([false, "validation failed"])
-        expect(IsbnField.validate("978-0-471-95869-7")).to eq([false, "validation failed"])
+        expect(IsbnField.validate("9780306406158")).to eq([false, "validation failed"])
+        expect(IsbnField.validate("978-0-306-40615-8")).to eq([false, "validation failed"])
       end
     end
 
     context "with valid ISBN-10" do
       it "returns [true, 'validation pass']" do
         # Valid ISBN-10 examples
-        expect(IsbnField.validate("0471958698")).to eq([true, "validation pass"])
-        expect(IsbnField.validate("0-471-95869-8")).to eq([true, "validation pass"])
-        expect(IsbnField.validate("0 471 95869 8")).to eq([true, "validation pass"])
-        
+        expect(IsbnField.validate("0471958697")).to eq([true, "validation pass"])
+        expect(IsbnField.validate("0-471-95869-7")).to eq([true, "validation pass"])
+        expect(IsbnField.validate("0 471 95869 7")).to eq([true, "validation pass"])
+
         # ISBN-10 with 'X' as check digit
         expect(IsbnField.validate("155404295X")).to eq([true, "validation pass"])
         expect(IsbnField.validate("1-55404-295-X")).to eq([true, "validation pass"])
@@ -56,9 +56,9 @@ RSpec.describe IsbnField do
     context "with valid ISBN-13" do
       it "returns [true, 'validation pass']" do
         # Valid ISBN-13 examples
-        expect(IsbnField.validate("9780471958697")).to eq([false, "validation failed"])
-        expect(IsbnField.validate("978-0-471-95869-7")).to eq([false, "validation failed"])
-        
+        expect(IsbnField.validate("9780471958697")).to eq([true, "validation pass"])
+        expect(IsbnField.validate("978-0-471-95869-7")).to eq([true, "validation pass"])
+
         # These are actual valid ISBN-13 numbers
         expect(IsbnField.validate("9780306406157")).to eq([true, "validation pass"])
         expect(IsbnField.validate("978-0-306-40615-7")).to eq([true, "validation pass"])
